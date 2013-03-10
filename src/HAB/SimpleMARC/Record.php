@@ -70,6 +70,13 @@ class Record
     private $leader;
 
     /**
+     * Field cache.
+     *
+     * @var array
+     */
+    private $cache;
+
+    /**
      * Constructor.
      *
      * @param  string $data Record data
@@ -111,12 +118,15 @@ class Record
         $shorthands = array_filter(array_keys($this->directory), function ($shorthand) use ($selector) { return preg_match($selector, $shorthand); });
         $fields = array();
         foreach ($shorthands as $shorthand) {
-            if (strpos($shorthand, '00') === 0) {
-                // Control field
-                $fields[$shorthand] = $this->readControlField($shorthand);
-            } else {
-                $fields[$shorthand] = $this->readDataField($shorthand);
+            if (!isset($this->cache[$shorthand])) {
+                if (strpos($shorthand, '00') === 0) {
+                    // Control field
+                    $this->cache[$shorthand] = $this->readControlField($shorthand);
+                } else {
+                    $this->cache[$shorthand] = $this->readDataField($shorthand);
+                }
             }
+            $fields[$shorthand] = $this->cache[$shorthand];
         }
         return $fields;
     }
