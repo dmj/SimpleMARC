@@ -1,0 +1,30 @@
+* SimpleMARC
+
+SimpleMARC provides simplified, read-only access to MARC records. In contrast to [[http://pear.php.net/package/File_MARC/][PEAR File_MARC]] it
+does not create a complete in-memory representation of the MARC record but utilizes the MARC
+directory to retrieve information from the MARC record.
+
+SimpleMARC is Copyright (c) 2013 by Herzog August Bibliothek Wolfenbüttel and released under the
+terms of the GNU General Public License v3.
+
+The MARC data itself is represented by native PHP strings (control fields) or native PHP arrays
+(data fields). While a control field is simply the field value the data field is encoded as follows:
+
+array(CODE => array(POS => VALUE, …), …)
+
+- CODE is the subfield code
+- POS is the zero-indexed subfield position
+- VALUE is a string with the subfield value
+
+MARC fields are addressed by a shorthand notation. For control field the shorthand is identifical to
+the field tag, the shorthand for datafields concatenates the field tag and the indicators with the
+forward slash (ASCII 47) as separator. Empty indicators are represented by the space character
+(ASCII 32).
+
+** Methods
+
+*** [array] Record::select(SELECTOR)
+
+SELECTOR is the body of a regular expression and matched against the field shorthands. The return
+value is an array of field data indexed by shorthand.
+
