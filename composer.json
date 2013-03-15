@@ -14,5 +14,10 @@
     "support": {
         "issues": "https://github.com/dmj/SimpleMARC/issues",
         "source": "https://github.com/dmj/SimpleMARC"
+    },
+    "autoload": {
+        "psr-0": {
+            "HAB\\SimpleMARC": "src/"
+        }
     }
 }
