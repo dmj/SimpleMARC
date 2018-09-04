@@ -108,8 +108,8 @@ class Builder
      */
     public function addDataField ($number, $indicators, array $subfields)
     {
-        if (!preg_match('@^[1-9][0-9]{2}$@u', $number)) {
-            throw new InvalidArgumentException("The data field number must match [1-9][0-9]{2}: {$number}");
+        if (!preg_match('@^[0-9]{3}$@u', $number)) {
+            throw new InvalidArgumentException("The data field number must match [0-9][0-9]{3}: {$number}");
         }
         if (!preg_match('@^[0-9 ]{2}$@u', $indicators)) {
             throw new InvalidArgumentException("The indicators' must match [0-9 ]{2}: {$indicators}");
