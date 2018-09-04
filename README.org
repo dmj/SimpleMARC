@@ -4,7 +4,7 @@ SimpleMARC provides simplified, read-only access to MARC records. In contrast to
 does not create a complete in-memory representation of the MARC record but utilizes the MARC
 directory to retrieve information from the MARC record.
 
-SimpleMARC is Copyright (c) 2013 by Herzog August Bibliothek Wolfenbüttel and released under the
+SimpleMARC is Copyright (c) 2013-2018 by Herzog August Bibliothek Wolfenbüttel and released under the
 terms of the GNU General Public License v3.
 
 The MARC data itself is represented by native PHP strings (control fields) or native PHP arrays
