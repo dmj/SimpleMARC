@@ -140,18 +140,18 @@ class Builder
         $directory = array();
         $data = array();
 
-        foreach ($this->dataFields as $shorthand => $values) {
-            list($number, $ind) = explode('/', $shorthand);
-            foreach ($values as $subfields) {
-                $value = $ind . Record::SUBFIELD_DELIMITER . $ind . implode(Record::SUBFIELD_DELIMITER, array_map('implode', $subfields));
+        foreach ($this->controlFields as $number => $values) {
+            foreach ($values as $value) {
                 $data []= $value;
                 $directory []= sprintf('%03d%04d%05d', $number, 1 + strlen($value), $directoryLength);
                 $directoryLength += strlen($value) + 1;
             }
         }
 
-        foreach ($this->controlFields as $number => $values) {
-            foreach ($values as $value) {
+        foreach ($this->dataFields as $shorthand => $values) {
+            list($number, $ind) = explode('/', $shorthand);
+            foreach ($values as $subfields) {
+                $value = $ind . Record::SUBFIELD_DELIMITER . $ind . implode(Record::SUBFIELD_DELIMITER, array_map('implode', $subfields));
                 $data []= $value;
                 $directory []= sprintf('%03d%04d%05d', $number, 1 + strlen($value), $directoryLength);
                 $directoryLength += strlen($value) + 1;
