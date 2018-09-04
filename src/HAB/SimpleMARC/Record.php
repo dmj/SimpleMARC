@@ -17,7 +17,7 @@
  * along with SimpleMARC.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @author    David Maus <maus@hab.de>
- * @copyright Copyright (c) 2013 by Herzog August Bibliothek Wolfenbüttel
+ * @copyright Copyright (c) 2013-2018 by Herzog August Bibliothek Wolfenbüttel
  * @license   http://www.gnu.org/licenses/gpl.txt GNU General Public License v3
  */
 
@@ -29,7 +29,7 @@ use UnexpectedValueException;
  * The read-only MARC record.
  *
  * @author    David Maus <maus@hab.de>
- * @copyright Copyright (c) 2013 by Herzog August Bibliothek Wolfenbüttel
+ * @copyright Copyright (c) 2013-2018 by Herzog August Bibliothek Wolfenbüttel
  * @license   http://www.gnu.org/licenses/gpl.txt GNU General Public License v3
  */
 class Record
@@ -40,6 +40,13 @@ class Record
      * @var string
      */
     const SUBFIELD_DELIMITER = "\x1f";
+
+    /**
+     * MARC field terminator.
+     *
+     * @var string
+     */
+    const FIELD_TERMINATOR = "\x1e";
 
     /**
      * Record data.
