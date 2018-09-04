@@ -140,6 +140,7 @@ class Builder
         $directory = array();
         $data = array();
 
+        ksort($this->controlFields);
         foreach ($this->controlFields as $number => $values) {
             foreach ($values as $value) {
                 $data []= $value;
@@ -148,6 +149,7 @@ class Builder
             }
         }
 
+        ksort($this->dataFields);
         foreach ($this->dataFields as $shorthand => $values) {
             list($number, $ind) = explode('/', $shorthand);
             foreach ($values as $subfields) {
