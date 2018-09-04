@@ -79,6 +79,41 @@ class Builder
         $this->dataFields = array();
     }
 
+    public function setRecordStatus ($recordStatus)
+    {
+        $this->setLeaderValue(5, $recordStatus);
+    }
+
+    public function setTypeOfRecord ($typeOfRecord)
+    {
+        $this->setLeaderValue(6, $typeOfRecord);
+    }
+
+    public function setBibliographicLevel ($bibliographicLevel)
+    {
+        $this->setLeaderValue(7, $bibliographicLevel);
+    }
+
+    public function setTypeOfControl ($typeOfControl)
+    {
+        $this->setLeaderValue(8, $typeOfControl);
+    }
+
+    public function setEncodingLevel ($encodingLevel)
+    {
+        $this->setLeaderValue(17, $typeOfControl);
+    }
+
+    public function setDescriptiveCataloginForm ($descriptiveCatalogingForm)
+    {
+        $this->setLeaderValue(18, $descriptiveCatalogingForm);
+    }
+
+    public function setMultipartResourceRecordLevel ($multipartResourceRecordLevel)
+    {
+        $this->setLeaderValue(19, $multipartResourceRecordLevel);
+    }
+
     /**
      * Add a control field.
      *
