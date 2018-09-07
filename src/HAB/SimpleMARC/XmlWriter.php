@@ -45,7 +45,7 @@ class XmlWriter
         $buffer []= sprintf('<leader>%s</leader>', self::escape($record->leader()));
         foreach ($record->select('^00[0-9]$') as $shorthand => $values) {
             foreach ($values as $value) {
-                $buffer []= sprintf('<controlfield tag="%s">%s</controlfield>', $shorthand, $value);
+                $buffer []= sprintf('<controlfield tag="%s">%s</controlfield>', $shorthand, self::escape($value));
             }
         }
         foreach ($record->select('^[0-9]{3}/') as $shorthand => $fields) {
