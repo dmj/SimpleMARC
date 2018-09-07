@@ -49,6 +49,13 @@ class Record
     const FIELD_TERMINATOR = "\x1e";
 
     /**
+     * MARC record terminator.
+     *
+     * @var string
+     */
+    const RECORD_TERMINATOR = "\x1d";
+
+    /**
      * Record data.
      *
      * @var string
