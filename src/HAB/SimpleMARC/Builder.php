@@ -201,7 +201,7 @@ class Builder
 
         $leader = sprintf('%05d%s%05d%s', $recordLength, substr($this->leader, 5, 7), 25 + strlen($directory), substr($this->leader, 17));
 
-        $record = $leader . $directory . Record::FIELD_TERMINATOR . $data;
+        $record = $leader . $directory . Record::FIELD_TERMINATOR . $data . Record::RECORD_TERMINATOR;
         return $record;
     }
 
