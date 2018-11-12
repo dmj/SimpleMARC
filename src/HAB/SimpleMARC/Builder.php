@@ -104,7 +104,7 @@ class Builder
         $this->setLeaderValue(17, $typeOfControl);
     }
 
-    public function setDescriptiveCataloginForm ($descriptiveCatalogingForm)
+    public function setDescriptiveCatalogingForm ($descriptiveCatalogingForm)
     {
         $this->setLeaderValue(18, $descriptiveCatalogingForm);
     }
