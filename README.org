@@ -34,7 +34,7 @@ value is an array of field data indexed by shorthand.
 
 ** SimpleMARC Builder
 
-[[https://www.loc.gov/marc/bibliographic/bdleader.html][MARC21 documentation]]
+SimpleMARC Builder provides a builder for MARC records.
 
 *** Methods
 
@@ -42,9 +42,7 @@ value is an array of field data indexed by shorthand.
 
 Resets the builder for a new record.
 
-**** Setters of Leader values
-
-***** [Builder] Builder::setRecordStatus(STATUS)
+**** [Builder] Builder::setRecordStatus(STATUS)
 
 Set the record status (leader position 5).
 
@@ -52,7 +50,7 @@ Set the record status (leader position 5).
 
 Defaults to 'n - New'.
 
-***** [Builder] Builder::setTypeOfRecord(TYPE)
+**** [Builder] Builder::setTypeOfRecord(TYPE)
 
 Set the type of the record (leader position 6).
 
@@ -60,7 +58,7 @@ Set the type of the record (leader position 6).
 
 Defaults to 'a - Language material'.
 
-***** [Builder] Builder::setBibliographicLevel(LEVEL)
+**** [Builder] Builder::setBibliographicLevel(LEVEL)
 
 Set the bibliographic level (leader position 7).
 
@@ -68,7 +66,7 @@ Set the bibliographic level (leader position 7).
 
 Defaults to 'm - Monograph/Item'.
 
-***** [Builder] Builder::setTypeOfControl(TYPE)
+**** [Builder] Builder::setTypeOfControl(TYPE)
 
 Set the type of control (leader position 8).
 
@@ -76,7 +74,7 @@ Set the type of control (leader position 8).
 
 Defaults to '# -  No specified type'.
 
-***** [Builder] Builder::setEncodingLevel(LEVEL)
+**** [Builder] Builder::setEncodingLevel(LEVEL)
 
 Set the encoding level (leader position 17).
 
@@ -84,7 +82,7 @@ Set the encoding level (leader position 17).
 
 Defaults to 'u - Unknown'.
 
-***** [Builder] Builder::setDescriptiveCatalogingForm(FORM)
+**** [Builder] Builder::setDescriptiveCatalogingForm(FORM)
 
 Set the descriptive cataloging form (leader position 18).
 
@@ -92,7 +90,7 @@ Set the descriptive cataloging form (leader position 18).
 
 Defaults to 'u - Unknown'.
 
-***** [Builder] Builder::setMultipartResourceRecordLevel(LEVEL)
+**** [Builder] Builder::setMultipartResourceRecordLevel(LEVEL)
 
 Set the multipart resource record level (leader position 19).
 
@@ -128,6 +126,8 @@ SimpleMARC XmlWriter serializes a MARC record as MARC21 XML.
 
 *** Methods
 
-**** [string] XmlWriter::write(Record RECORD)
+**** [string] XmlWriter::write(RECORD)
 
 Returns the MARC21 XML representation of RECORD.
+
+- RECORD is an instance of SimpleMARC Record
