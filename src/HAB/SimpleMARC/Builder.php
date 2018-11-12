@@ -82,36 +82,43 @@ class Builder
     public function setRecordStatus ($recordStatus)
     {
         $this->setLeaderValue(5, $recordStatus);
+        return $this;
     }
 
     public function setTypeOfRecord ($typeOfRecord)
     {
         $this->setLeaderValue(6, $typeOfRecord);
+        return $this;
     }
 
     public function setBibliographicLevel ($bibliographicLevel)
     {
         $this->setLeaderValue(7, $bibliographicLevel);
+        return $this;
     }
 
     public function setTypeOfControl ($typeOfControl)
     {
         $this->setLeaderValue(8, $typeOfControl);
+        return $this;
     }
 
     public function setEncodingLevel ($encodingLevel)
     {
         $this->setLeaderValue(17, $typeOfControl);
+        return $this;
     }
 
     public function setDescriptiveCatalogingForm ($descriptiveCatalogingForm)
     {
         $this->setLeaderValue(18, $descriptiveCatalogingForm);
+        return $this;
     }
 
     public function setMultipartResourceRecordLevel ($multipartResourceRecordLevel)
     {
         $this->setLeaderValue(19, $multipartResourceRecordLevel);
+        return $this;
     }
 
     /**
@@ -129,6 +136,7 @@ class Builder
             throw new InvalidArgumentException("The control field number must match 00[1-9]: {$number}");
         }
         $this->controlFields[$number] []= $value;
+        return $this;
     }
 
     /**
@@ -162,6 +170,7 @@ class Builder
         }
         $shorthand = sprintf("%s/%s", $number, $indicators);
         $this->dataFields[$shorthand] []= $subfields;
+        return $this;
     }
 
     /**
