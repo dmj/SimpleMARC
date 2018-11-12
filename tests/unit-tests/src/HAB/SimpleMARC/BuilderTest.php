@@ -37,7 +37,7 @@ class BuilderTest extends TestCase
     public function testBuildEmptyRecord ()
     {
         $builder = new Builder();
-        $this->assertEquals('00025nam a2200025uu 4500', $builder->build());
+        $this->assertEquals('00025nam a2200025uu 4500', $builder->build());
     }
 
     public function testBuildRecord ()
