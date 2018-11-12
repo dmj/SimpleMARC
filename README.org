@@ -1,11 +1,15 @@
 * SimpleMARC
 
-SimpleMARC provides simplified, read-only access to MARC records. In contrast to [[http://pear.php.net/package/File_MARC/][PEAR File_MARC]] it
-does not create a complete in-memory representation of the MARC record but utilizes the MARC
-directory to retrieve information from the MARC record.
+Working with MARC records.
 
-SimpleMARC is Copyright (c) 2013-2018 by Herzog August Bibliothek Wolfenbüttel and released under the
-terms of the GNU General Public License v3.
+SimpleMARC is Copyright (c) 2013-2018 by Herzog August Bibliothek Wolfenbüttel and released under
+the terms of the GNU General Public License v3.
+
+** SimpleMARC Record
+
+SimpleMARC Record provides simplified, read-only access to MARC records. In contrast to [[http://pear.php.net/package/File_MARC/][PEAR
+File_MARC]] it does not create a complete in-memory representation of the MARC record but utilizes the
+MARC directory to retrieve information from the MARC record.
 
 The MARC data itself is represented by native PHP strings (control fields) or native PHP arrays
 (data fields). While a control field is simply the field value the data field is encoded as follows:
@@ -21,10 +25,109 @@ the field tag, the shorthand for datafields concatenates the field tag and the i
 forward slash (ASCII 47) as separator. Empty indicators are represented by the space character
 (ASCII 32).
 
-** Methods
+*** Methods
 
-*** [array] Record::select(SELECTOR)
+**** [array] Record::select(SELECTOR)
 
 SELECTOR is the body of a regular expression and matched against the field shorthands. The return
 value is an array of field data indexed by shorthand.
 
+** SimpleMARC Builder
+
+[[https://www.loc.gov/marc/bibliographic/bdleader.html][MARC21 documentation]]
+
+*** Methods
+
+**** [Builder] Builder::reset()
+
+Resets the builder for a new record.
+
+**** Setters of Leader values
+
+***** [Builder] Builder::setRecordStatus(STATUS)
+
+Set the record status (leader position 5).
+
+- STATUS is a string with the record status
+
+Defaults to 'n - New'.
+
+***** [Builder] Builder::setTypeOfRecord(TYPE)
+
+Set the type of the record (leader position 6).
+
+- TYPE is a string with the record type
+
+Defaults to 'a - Language material'.
+
+***** [Builder] Builder::setBibliographicLevel(LEVEL)
+
+Set the bibliographic level (leader position 7).
+
+- LEVEL is a string with the bibliographic level
+
+Defaults to 'm - Monograph/Item'.
+
+***** [Builder] Builder::setTypeOfControl(TYPE)
+
+Set the type of control (leader position 8).
+
+- TYPE is a string with the type of control
+
+Defaults to '# -  No specified type'.
+
+***** [Builder] Builder::setEncodingLevel(LEVEL)
+
+Set the encoding level (leader position 17).
+
+- LEVEL is a string with the encoding level
+
+Defaults to 'u - Unknown'.
+
+***** [Builder] Builder::setDescriptiveCatalogingForm(FORM)
+
+Set the descriptive cataloging form (leader position 18).
+
+- FORM is a string with the descriptive cataloging form
+
+Defaults to 'u - Unknown'.
+
+***** [Builder] Builder::setMultipartResourceRecordLevel(LEVEL)
+
+Set the multipart resource record level (leader position 19).
+
+- LEVEL is string with the the multipart resource record level
+
+Defaults to '# - Not specified or not applicable'.
+
+**** [Builder] Builder::addControlField(NUMBER, VALUE)
+
+Adds a MARC controlfield.
+
+- NUMBER is a string with the control field number
+- VALUES is a string with the the control field value
+
+**** [Builder] Builder::addDataField(NUMBER, INDICATORS, array SUBFIELDS)
+
+- NUMBER is a string with the data field number
+- INDICATORS is a string of two characters with the data field indicators
+- SUBFIELDS is an array representing the data field subfields
+
+Each element of the SUBFIELDS array is expected to be an array of the form [CODE, VALUE] where
+
+- CODE is a string with the subfield code
+- VALUES is a string with the subfield value
+
+**** [string] Builder::build()
+
+Finally builds the record and returns an instance of the SimpleMARC Record class.
+
+** SimpleMARC XmlWriter
+
+SimpleMARC XmlWriter serializes a MARC record as MARC21 XML.
+
+*** Methods
+
+**** [string] XmlWriter::write(Record RECORD)
+
+Returns the MARC21 XML representation of RECORD.
