@@ -206,7 +206,7 @@ class Builder
 
         $directory = implode('', $directory);
         $data = implode(Record::FIELD_TERMINATOR, $data);
-        $recordLength = 24 + strlen($directory) + 1 + strlen($data);
+        $recordLength = 24 + strlen($directory) + 2 + strlen($data);
 
         $leader = sprintf('%05d%s%05d%s', $recordLength, substr($this->leader, 5, 7), 25 + strlen($directory), substr($this->leader, 17));
 
