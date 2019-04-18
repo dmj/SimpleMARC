@@ -167,6 +167,9 @@ class Builder
             if (strlen($subfield[0]) != 1) {
                 throw new InvalidArgumentException("A subfile code must be a single character: {$subfield[0]}");
             }
+            if (strlen($subfield[1]) == 0) {
+                throw new InvalidArgumentException("A subfield must not be empty");
+            }
         }
         $shorthand = sprintf("%s/%s", $number, $indicators);
         $this->dataFields[$shorthand] []= $subfields;
