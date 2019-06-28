@@ -3,7 +3,6 @@
     "description": "Simplified, read-only access to MARC records.",
     "type": "library",
     "license": "GPL-3.0+",
-    "version": "0.2.0",
     "authors": [
         {
             "name": "David Maus",
